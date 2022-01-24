@@ -24,8 +24,6 @@ class WaveClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
-    // ignore: todo
-    // TODO: implement shouldReclip
     return false;
   }
 }

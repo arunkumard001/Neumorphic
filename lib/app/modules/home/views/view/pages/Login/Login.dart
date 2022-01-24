@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'dart:math' as math;
-
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:neoamphoric/app/modules/home/views/view/pages/Login/logintab.dart';
+import 'package:neoamphoric/app/modules/home/views/view/pages/Login/signuptab.dart';
 
 int _index = 1;
 
@@ -21,6 +20,7 @@ class _LoginState extends State<Login> {
         initialIndex: _index,
         length: 2,
         child: Scaffold(
+          backgroundColor: const Color(0xFF202327),
           body: SingleChildScrollView(
             child: Column(
               children: [
@@ -39,7 +39,12 @@ class _LoginState extends State<Login> {
                             const Color(0xFF17191C)
                           ])),
                       child: TabBar(
-                          indicatorPadding: EdgeInsets.symmetric(vertical: 10),
+                          labelStyle: const TextStyle(
+                            color: const Color(0xFF6D737A),
+                            fontFamily: "Montserrat",
+                          ),
+                          indicatorPadding:
+                              const EdgeInsets.symmetric(vertical: 10),
                           indicatorSize: TabBarIndicatorSize.label,
                           indicatorWeight: 1.5,
                           onTap: (index) {
@@ -48,26 +53,32 @@ class _LoginState extends State<Login> {
                             });
                           },
                           tabs: [
-                            Tab(
+                            const Tab(
                               text: "Login",
                             ),
-                            Tab(
+                            const Tab(
                               text: "Sign-Up",
                             )
                           ]),
                     ),
+                    Center(
+                        child: Image.asset(
+                      "assets/svg/logo.png",
+                      scale: 1.6,
+                    )),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 63,
                 ),
                 Container(
                   height: 350,
-                  child: TabBarView(
-                    // physics: NeverScrollableScrollPhysics(),
+                  child: const TabBarView(
+                    // dragStartBehavior: DragStartBehavior.down,
+                    physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      Logintab(),
-                      signuptab(),
+                      const Logintab(),
+                      const signuptab(),
                     ],
                   ),
                 ),
@@ -75,8 +86,8 @@ class _LoginState extends State<Login> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Neumorphic(
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.circle(),
+                      style: const NeumorphicStyle(
+                          boxShape: const NeumorphicBoxShape.circle(),
                           color: Colors.black),
                       child: NeumorphicButton(
                           child: Image.asset(
@@ -86,7 +97,7 @@ class _LoginState extends State<Login> {
                       )),
                     ),
                     Neumorphic(
-                      style: NeumorphicStyle(
+                      style: const NeumorphicStyle(
                           boxShape: NeumorphicBoxShape.circle(),
                           color: Colors.black),
                       child: NeumorphicButton(
@@ -97,8 +108,8 @@ class _LoginState extends State<Login> {
                       )),
                     ),
                     Neumorphic(
-                      style: NeumorphicStyle(
-                          boxShape: NeumorphicBoxShape.circle(),
+                      style: const NeumorphicStyle(
+                          boxShape: const NeumorphicBoxShape.circle(),
                           color: Colors.black),
                       child: NeumorphicButton(
                           child: Image.asset(
@@ -109,7 +120,7 @@ class _LoginState extends State<Login> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Container(
@@ -123,125 +134,16 @@ class _LoginState extends State<Login> {
                     child: Text(
                       _index == 1 ? "sign-up" : "Login",
                       textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        //color: Color(0x00ffffff),
+                        fontFamily: "Montserrat",
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class signuptab extends StatelessWidget {
-  const signuptab({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Name",
-              textAlign: TextAlign.start,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                  hintText: "name", border: UnderlineInputBorder()),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Text(
-              "email address",
-              textAlign: TextAlign.start,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                  hintText: "email address", border: UnderlineInputBorder()),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Text(
-              "password",
-              textAlign: TextAlign.start,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                  hintText: "password", border: UnderlineInputBorder()),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            Align(
-              child: Text(
-                "Or \n Continue with",
-                textAlign: TextAlign.center,
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Logintab extends StatelessWidget {
-  const Logintab({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Username/email address",
-              textAlign: TextAlign.start,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                  hintText: "email address", border: UnderlineInputBorder()),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Text(
-              "password",
-              textAlign: TextAlign.start,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                  hintText: "password", border: UnderlineInputBorder()),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            Text(
-              "Forgot password?",
-              textAlign: TextAlign.start,
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            Align(
-              child: Text(
-                "Or Login with",
-              ),
-            )
-          ],
         ),
       ),
     );

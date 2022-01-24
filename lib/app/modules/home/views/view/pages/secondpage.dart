@@ -1,7 +1,7 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:neoamphoric/svgstring.dart';
+import 'package:neoamphoric/app/modules/home/views/svgstring.dart';
 
 class central extends StatefulWidget {
   central({Key? key}) : super(key: key);
