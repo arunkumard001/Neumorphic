@@ -1,5 +1,6 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:neoamphoric/color.dart';
+import 'package:neoamphoric/secondpage.dart';
 import 'package:neoamphoric/waveclipper.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
@@ -58,7 +59,12 @@ class Customappbar extends StatelessWidget {
                 Icons.menu,
                 color: Colors.black26,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => central()),
+                );
+              },
             ),
           ),
         ),
